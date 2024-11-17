@@ -11,7 +11,7 @@ public class Participant {
         int option;
         do {
             try {
-                System.out.println("\n\t--- Participant Menu ---");
+                System.out.println("\nParticipant Menu");
                 System.out.println("1. Add Participant");
                 System.out.println("2. View Participants");
                 System.out.println("3. Edit Participant");
@@ -50,7 +50,6 @@ public class Participant {
     }
     
     private void addParticipant() {
-        System.out.println("\n--- ADD NEW PARTICIPANT ---");
         System.out.print("Event ID: ");
         int eventId = scan.nextInt();
         scan.nextLine();

@@ -11,7 +11,7 @@ public class Event {
         int option;
         do {
             try {
-                System.out.println("\n\t--- Event Menu ---");
+                System.out.println("\nEvent Menu");
                 System.out.println("1. Add Event");
                 System.out.println("2. View Events");
                 System.out.println("3. Edit Event");
@@ -50,10 +50,9 @@ public class Event {
     }
     
     private void addEvent() {
-        System.out.println("\n--- ADD NEW EVENT ---");
         System.out.print("Event Name: ");
         String name = scan.nextLine();
-        System.out.print("Date (YYYY-MM-DD): ");
+        System.out.print("Date: ");
         String date = scan.nextLine();
         System.out.print("Location: ");
         String location = scan.nextLine();

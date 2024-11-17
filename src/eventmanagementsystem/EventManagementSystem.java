@@ -8,17 +8,17 @@ public class EventManagementSystem {
     
     static Scanner scan = new Scanner(System.in);
     static Event event = new Event();
-    static Participant participant = new Participant();
+    static Participant part = new Participant();
     
     public static void main(String[] args) {
         int choice;
         
         do {
             try {
-                System.out.println("\n   + Event Management System +\n");
-                System.out.println("1. Manage Events");
-                System.out.println("2. Manage Participants");
-                System.out.println("3. Generate Reports");
+                System.out.println("\nEvent Management System\n");
+                System.out.println("1. Events");
+                System.out.println("2. Participants");
+                System.out.println("3. Reports");
                 System.out.println("4. Exit");
                 
                 System.out.print("\nEnter Option: ");
@@ -31,13 +31,13 @@ public class EventManagementSystem {
                         event.eventConfig();
                         break;
                     case 2:
-                        participant.participantConfig();
+                        part.participantConfig();
                         break;
                     case 3:
                         generateReports();
                         break;
                     case 4:
-                        System.out.println("Exiting...");
+                        System.out.println("Goodbye!!!");
                         break;
                     default:
                         System.out.println("Invalid Option.");
@@ -51,7 +51,7 @@ public class EventManagementSystem {
     }
     
     static void generateReports() {
-        System.out.println("\n\t--- EVENTS LIST ---");
+        System.out.println("\nEVENTS LIST");
         event.viewEvents();
         
         int eventId;
@@ -63,7 +63,8 @@ public class EventManagementSystem {
             }
         } while (!conf.doesIDExist("events", eventId));
         
-        System.out.println("\n================ EVENT DETAILS ================");
+        System.out.println("\n-----------------------------------------------");
+        System.out.println("EVENT DETAILS");
         System.out.printf("Event ID     : %d%n", eventId);
         System.out.printf("Event Name   : %s%n", conf.getDataFromID("events", eventId, "name"));
         System.out.printf("Date         : %s%n", conf.getDataFromID("events", eventId, "date"));
