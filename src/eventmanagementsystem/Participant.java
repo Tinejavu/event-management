@@ -50,6 +50,10 @@ public class Participant {
     }
     
     private void addParticipant() {
+        Event ev = new Event();
+        
+        ev.viewEvents();
+        
         System.out.print("Event ID: ");
         int eventId = scan.nextInt();
         scan.nextLine();
@@ -67,6 +71,11 @@ public class Participant {
         
         String sql = "INSERT INTO participants (event_id, name, email, contact_info) VALUES (?, ?, ?, ?)";
         conf.addRecord(sql, eventId, name, email, contactInfo);
+        
+        int capacity = Integer.parseInt(conf.getDataFromID("events", eventId, "capacity")) - 1;
+        String updCapacity = "UPDATE events SET capacity = ? WHERE id = ?";
+        
+        conf.updateRecord(updCapacity, capacity, eventId);
     }
     
     public void viewParticipants() {
